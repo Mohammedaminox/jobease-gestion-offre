@@ -9,7 +9,7 @@ if(isset($_SESSION['id_user'])){
 
 $connection = new Connection();
 $conn = $connection->conn;
-$sql = "SELECT * FROM users";
+$sql = "SELECT apply.status, users.username, users.email , jobs.title FROM apply JOIN users ON apply.user_id = users.id JOIN jobs ON apply.job_id = jobs.job_id";
 $result = mysqli_query($conn,$sql);
 
 ?>
@@ -129,8 +129,8 @@ $result = mysqli_query($conn,$sql);
                     <thead class="bg-light">
                         <tr>
                             <th>Name Candidat</th>
-                            <th>description</th>
-                            <th>tags</th>
+                            <th>email</th>
+                            <th>job title</th>
                             <th>status</th>
                             <th>Actions</th>
                         </tr>
@@ -148,75 +148,19 @@ $result = mysqli_query($conn,$sql);
                                 </div>
                             </td>
                             <td>
-                                <p class="fw-normal mb-1 f_title">I need someone for InDesign work on a semi-regular
-                                    basis. Must be proficient in Indesign and page layout. Must be detail-oriented and
-                                    highly organized. Fast turnaround times are a must and need to work during USA EST
-                                    business hours.</p>
-
+                                
+                                <p class="fw-normal mb-1 f_title"><?php echo $row['email']; ?></p>
                             </td>
                             <td>
-                                <a href="#" class="f_status">Adobe InDesign Brochure Design Graphic Design PDF
-                                    Photoshop</a>
+                                <p class="fw-normal mb-1 f_title"><?php echo $row['title']; ?></p>
                             </td>
-                            <td class="f_position">Inactif</td>
+                            <td class="f_position"><?php echo $row['status']; ?></td>
                             <td class="">
                                 <img class="accept_task w-50" src="../../../public/img/journal-check.svg" alt="icon">
                                 <img class="delet_user w-50" src="../../../public/img/journal-x.svg" alt="icon">
                             </td>
                         </tr>
                         <?php }?>
-                        <tr class="freelancer">
-                            <td>
-                                <div class="d-flex align-items-center">
-
-                                    <div class="ms-3">
-                                        <p class="fw-bold mb-1 f_name">John Doe</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <p class="fw-normal mb-1 f_title">I need someone for InDesign work on a semi-regular
-                                    basis. Must be proficient in Indesign and page layout. Must be detail-oriented and
-                                    highly organized. Fast turnaround times are a must and need to work during USA EST
-                                    business hours.</p>
-
-                            </td>
-                            <td>
-                                <a href="#" class="f_status">Adobe InDesign Brochure Design Graphic Design PDF
-                                    Photoshop</a>
-                            </td>
-                            <td class="f_position">Actif</td>
-                            <td class="">
-                                <img class="accept_task w-50" src="../../../public/img/journal-check.svg" alt="icon">
-                                <img class="delet_user w-50" src="../../../public/img/journal-x.svg" alt="icon">
-                            </td>
-                        </tr>
-                        <tr class="freelancer">
-                            <td>
-                                <div class="d-flex align-items-center">
-
-                                    <div class="ms-3">
-                                        <p class="fw-bold mb-1 f_name">John Doe</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <p class="fw-normal mb-1 f_title">I need someone for InDesign work on a semi-regular
-                                    basis. Must be proficient in Indesign and page layout. Must be detail-oriented and
-                                    highly organized. Fast turnaround times are a must and need to work during USA EST
-                                    business hours.</p>
-
-                            </td>
-                            <td>
-                                <a href="#" class="f_status">Adobe InDesign Brochure Design Graphic Design PDF
-                                    Photoshop</a>
-                            </td>
-                            <td class="f_position">Actif</td>
-                            <td class="">
-                                <img class="accept_task w-50" src="../../../public/img/journal-check.svg" alt="icon">
-                                <img class="delet_user w-50" src="../../../public/img/journal-x.svg" alt="icon">
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
 

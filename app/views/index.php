@@ -137,7 +137,11 @@ $result = mysqli_query($conn,$sql);
                         <li class="tag__item"><i class="fas fa-tag mr-2"></i>Maroc</li>
                         <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
                         <li class="tag__item play green">
-                            <a href="#"><i class="fas fa-play mr-2"></i>APPLY NOW</a>
+                            <form action="dashboard/apply.php" method="POST">
+                                <input type="hidden" name="job_id" value="<?php echo $row['job_id'] ?>">
+                                <button class="fas fa-play mr-2" type="submit" name="submit" >APPLY NOW</button>
+
+                            </form>
                         </li>
                     </ul>
                 </div>

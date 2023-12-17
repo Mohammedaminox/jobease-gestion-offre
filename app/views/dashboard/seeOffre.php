@@ -176,7 +176,9 @@ if(isset($_GET['id_offre'])){
 
                                     <img class="accept_task" src="../../../public/img/icons8-delete.svg" alt="icon">
                                 </a>
+                                <a href="updateOffre.php?id=<?php echo $row['job_id'] ?>">
                                 <img class="delet_user" src="../../../public/img/icons8-edit.svg" alt="icon">
+                                </a>
                             </td>
                         </tr>
                         <?php }?>

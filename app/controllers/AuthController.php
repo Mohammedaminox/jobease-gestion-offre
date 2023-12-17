@@ -54,6 +54,7 @@ class AuthController
             // $_SESSION['role_name'] = $user['role_name'];
             // $_SESSION['username'] = $user['username'];
             $_SESSION['id_user'] = $user['id'];
+            
 
             if ($user['role_name'] == "Candidat") {
                 header('location:../views/index.php');

@@ -21,4 +21,28 @@ if (isset($_POST['submit_offre'])) {
 } else {
     echo "error";
 }
+if (isset($_POST['submitupdate'])) {
+    $id = $_POST['job_id']; // Assuming you have an input field in your form for the offer_id
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $company = $_POST['company'];
+    $location = $_POST['location'];
+    $status = $_POST['status'];
+    $imagePath = $_FILES['file'];
+
+    var_dump($imagePath);
+
+    $targetDirectory = "../../public/upload/";
+    $UpdateOffre = new Update_offre_cntrl();
+    $result = $UpdateOffre->update_offre($id, $title, $description, $company, $location, $status, $imagePath);
+
+    if ($result == 1) {
+        header("Location: update_offre.php?msg=offer updated successfully&id=" . $id);
+        exit;
+    } else {
+        echo "Error updating offer.";
+    }
+} else {
+    echo "Error: Form not submitted.";
+}
 ?>
