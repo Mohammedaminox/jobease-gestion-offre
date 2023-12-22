@@ -15,7 +15,7 @@ if(isset($_POST["register"])){
    extract($_POST);
     $result = $authregister->register($name, $email, $password, $confpassword, $role);
     if($result) {
-        header('location:../../login.php');
+        header('location:login.php');
     }
 }
 ?>
@@ -44,7 +44,7 @@ if(isset($_POST["register"])){
         <input type="password" placeholder="Create password" name="password" required>
       </div>
       <div class="input-box">
-        <input type="password" placeholder="Confirm password" name="verfypassword" required>
+        <input type="password" placeholder="Confirm password" name="confpassword" required>
       </div>
       <div class="policy">
         <input type="checkbox">

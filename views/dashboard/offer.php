@@ -104,7 +104,7 @@ $listJobs = $jobController->getJobs(1);
                                 <tr class="freelancer">
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <img src="../../public/upload/<?= $job['imageURL'] ?>" alt="" style="width: 45px; height: 45px" class="rounded-circle" />
+                                            <img src="/public/upload/<?= $job['imageURL'] ?>" alt="" style="width: 45px; height: 45px" class="rounded-circle" />
                                         </div>
                                     </td>
                                     <td>

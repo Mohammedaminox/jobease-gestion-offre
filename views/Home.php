@@ -139,7 +139,7 @@
 			?>
 					<article class="postcard light green bottom-cards">
 						<a class="postcard__img_link" href="#">
-							<img class="postcard__img" src="../../public/upload/<?= $job['imageURL'] ?>" alt="Image Title" />
+							<img class="postcard__img" src="/public/upload/<?= $job['imageURL'] ?>" alt="Image Title" />
 						</a>
 						<div class="postcard__text t-dark">
 							<h3 class="postcard__title green"><a href="#"><?php echo $job["title"] ?></a></h3>

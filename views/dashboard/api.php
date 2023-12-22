@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $photo = isset($_FILES['photo']) ? $_FILES['photo'] : '';
 
             if ($photo['error'] === UPLOAD_ERR_OK) {
-                $targetDirectory = '../../../public/upload/';
+                $targetDirectory = '/public/upload/';
                 $targetFile = $targetDirectory . basename($photo['name']);
 
                 $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -36,8 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (in_array($imageFileType, $allowedImageTypes)) {
                     if (!file_exists($targetDirectory)) {
                         mkdir($targetDirectory, 0777, true);
-                    }
-
+                    } 
                     if (move_uploaded_file($photo['tmp_name'], $targetFile)) {
                         $originalFileName = basename($photo['name']);
                         $jobController->addJob($title, $description, $entreprise, $location, $isActive, $approve, $originalFileName);
@@ -72,13 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $jobController->deleteJob($idJob);
             echo json_encode(['success' => true, 'message' => 'Job deleted successfully.']);
             break;
-
-        // case 'deleteUser':
-        //     $userID = $_POST['userID'] ?? '';
-        //     $result = $userController->deleteUser($userID);
-        //     echo json_encode(['success' => $result, 'message' => 'User deleted successfully.']);
-        //     break;
-            // api.php
         case 'applyoffer':
             $Job = $_POST['applyOffre'];
             $JobOffer = explode("/", $Job);
